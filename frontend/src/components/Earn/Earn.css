@@ -1,0 +1,39 @@
+.App {
+	min-height: 85vh;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	padding: 40px;
+	font-size: 16px;
+	background-color: #f1f2f3;
+	/* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+}
+
+h1 {
+	color:#fcd535;
+}
+
+.tablecontainer{
+    width: 900px;
+	border-collapse: separate;
+	border-spacing: 0 1em;
+}
+
+.tablehead{
+    background-color: #fef6d8;
+    color: white;
+	text-align: center;
+
+}
+
+.tablerow-header{
+    font-size: 18px;
+}
+
+.subbutton{
+    background-color: #fcd535;
+    
+}
+
