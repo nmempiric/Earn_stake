@@ -10,6 +10,17 @@ Earn: The "Earn" functionality enables users to deposit an amount into the smart
 
 Stake: With the "Stake" functionality, users can lock their funds for a specific time duration within the smart contract, which results in rewards based on the staked amount. Additionally, users can view their staking and unstaking history.
 
+# Install dependencies
+ npm i
+
+# Getting Started
+ ## Backend
+   npx hardhat --network sepolia run scripts/<file_name>
+   npm start
+   
+## FrontEnd
+  npm start
+ 
 ## Earn Data Table
 ![earn_datatable](https://github.com/nmempiric/Earn_stake/assets/144980374/fddd53a4-fcd6-4318-9a76-bf2fa8f65371)
 
