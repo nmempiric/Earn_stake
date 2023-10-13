@@ -11,6 +11,6 @@ Earn: The "Earn" functionality enables users to deposit an amount into the smart
 Stake: With the "Stake" functionality, users can lock their funds for a specific time duration within the smart contract, which results in rewards based on the staked amount. Additionally, users can view their staking and unstaking history.
 
 ## Earn
-file:///home/pc/Pictures/Screenshots/earn_datatable.png
+
 
 
