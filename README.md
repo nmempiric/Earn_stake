@@ -1,8 +1,8 @@
 # earning_staking
 
 # Tech Stacks
-1. Backend Framework: Solidity,Hardhat,Ether.js,Express.js
-2. Frontend Framework: React,Material UI,Axios
+1. Backend : Solidity,Hardhat,Ether.js,Express.js
+2. Frontend : React,Material UI,Axios
 
 
 # Features
