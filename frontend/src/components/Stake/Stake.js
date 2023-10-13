@@ -101,7 +101,7 @@ const Stake = () => {
         })
         .catch((error) => {
           console.error("Transaction failed:", error);
-          toast.error("Unstaking failed. Please check the transaction on Etherscan");
+          toast.error("Unstaking failed. Please check the transaction on Etherscan",error);
         })
         .finally(() => {
             setIsLoadingUnStake(false);

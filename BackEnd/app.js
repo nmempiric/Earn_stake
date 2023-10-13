@@ -19,9 +19,9 @@ console.log("API------", API_URL);
 console.log("Private key----", PRIVATE_KEY);
 console.log("Stack contract Address------", STAKE_CONTRACT_ADDRESS);
 console.log("Earn contract Address-----", EARN_CONTRACT_ADDRESS);
+console.log("private key account-2------", PRIVATE_KEY2);
 
 // All Detail for STAKING
-
 const stakecontractABI = stakeABI.abi;
 // console.log("ABI========",stakecontractABI);
 const provider = new ethers.providers.JsonRpcProvider(API_URL);
@@ -37,7 +37,7 @@ const signcontract = new ethers.Contract(
   signer
 );
 
-// All Detal for Earning
+// All Detail for EARNING
 
 const earncontractABI = earnABI.abi;
 // console.log("ABI===========",earncontractABI);
@@ -115,8 +115,6 @@ app.post("/unstake", async function (req, res) {
   try {
     const unstakeData = await signcontract.unstake();
     console.log("unstaking-------------", unstakeData);
-    // const statikgasLimit = 200000; 
-    // const gasPrice = ethers.utils.parseUnits('10', 'gwei');
     await unstakeData.wait();
     res.status(200).json({
       message: "UnStake Amount successfully",
@@ -186,7 +184,9 @@ app.post("/deposit", async function (req, res) {
 app.post("/getuserBalance", async function (req, res) {
   try {
     const { Address } = req.body;
-    const totalBalance = await earncontract.getTotalBalanceWithInterest(Address);
+    const totalBalance = await earncontract.getTotalBalanceWithInterest(
+      Address
+    );
     const balanceInEth = totalBalance.toString();
     // console.log("Total User Balance:", ethers.utils.formatEther(balanceInEth));
     res.status(200).json({ Balance: ethers.utils.formatEther(balanceInEth) });
@@ -197,61 +197,61 @@ app.post("/getuserBalance", async function (req, res) {
 });
 
 // deposit history
-app.post("/depositHistory",async function (req,res){
-  try{
-    const {Address} = req.body;
+app.post("/depositHistory", async function (req, res) {
+  try {
+    const { Address } = req.body;
     const DepositData = await earncontract.getDepositHistory(Address);
 
-     // Format the deposit data
-     const formattedDepositData = DepositData.map((entry) => ({
+    // Format the deposit data
+    const formattedDepositData = DepositData.map((entry) => ({
       amount: ethers.utils.formatEther(entry[0]),
       timestamp: new Date(entry[1] * 1000).toLocaleString(),
     }));
 
     console.log("Deposit data-----", formattedDepositData);
-    res.status(200).json({Data:formattedDepositData})
-
-  }catch(error){
+    res.status(200).json({ Data: formattedDepositData });
+  } catch (error) {
     console.error(error);
-    res.status(500).json({mesasage:error});
+    res.status(500).json({ mesasage: error });
   }
-
 });
 
 // withdraw Amount
-app.post("/withdraw", async function(req,res){
-try{
-  const {amount} = req.body;
-  const withdrawamount = await earnsigncontract.withdraw(amount);
-  await withdrawamount.wait();
-  res.status(200).json({message : "withdraw amount successfully",transactionHash : withdrawamount.hash});
-
-}catch(error){
-  console.error(error);
-  res.status(500).json({message : error});
-}
+app.post("/withdraw", async function (req, res) {
+  try {
+    const { amount } = req.body;
+    const withdrawamount = await earnsigncontract.withdraw(amount);
+    await withdrawamount.wait();
+    res
+      .status(200)
+      .json({
+        message: "withdraw amount successfully",
+        transactionHash: withdrawamount.hash,
+      });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error });
+  }
 });
 
 // withdraw history
-app.post("/withdrawHistory",async function (req,res){
-  try{
-    const {Address} = req.body;
+app.post("/withdrawHistory", async function (req, res) {
+  try {
+    const { Address } = req.body;
     const WithdrawData = await earncontract.getWithdrawalHistory(Address);
 
-     // Format the deposit data
-     const formattedWithdrawData = WithdrawData.map((entry) => ({
+    // Format the deposit data
+    const formattedWithdrawData = WithdrawData.map((entry) => ({
       amount: ethers.utils.formatEther(entry[0]),
       timestamp: new Date(entry[1] * 1000).toLocaleString(),
     }));
 
     console.log("Deposit data-----", formattedWithdrawData);
-    res.status(200).json({Data:formattedWithdrawData})
-
-  }catch(error){
+    res.status(200).json({ Data: formattedWithdrawData });
+  } catch (error) {
     console.error(error);
-    res.status(500).json({mesasage:error});
+    res.status(500).json({ mesasage: error });
   }
-
 });
 
 app.listen(3000);

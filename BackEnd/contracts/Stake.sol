@@ -44,7 +44,7 @@ function stake(uint256 _lockperiodInDay) external payable {
          uint256 lockPeriodInSeconds = _lockperiodInDay * 1 days;
          console.log("Lock period time in second:::::::::" , lockPeriodInSeconds);
 
-        stakes[msg.sender].push(Stake(msg.value,1694751030,lockPeriodInSeconds)); //Stake amount,time & lock period
+        stakes[msg.sender].push(Stake(msg.value,block.timestamp,lockPeriodInSeconds)); //Stake amount,time & lock period
         userTotalBalance[msg.sender] += msg.value;
 
 }
