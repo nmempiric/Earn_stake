@@ -15,7 +15,7 @@ Stake: With the "Stake" functionality, users can lock their funds for a specific
 
 # Getting Started
  ## Backend
-   npx hardhat --network sepolia run scripts/<file_name>
+   npx hardhat --network sepolia run scripts/<file_name> <br>
    npm start
    
 ## FrontEnd
