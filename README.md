@@ -11,11 +11,14 @@ Earn: The "Earn" functionality enables users to deposit an amount into the smart
 Stake: With the "Stake" functionality, users can lock their funds for a specific time duration within the smart contract, which results in rewards based on the staked amount. Additionally, users can view their staking and unstaking history.
 
 # Install dependencies
- npm i
+ npm install
 
 # Getting Started
  ## Backend
+   ### Deploy Smart Contract
    npx hardhat --network sepolia run scripts/<file_name> <br>
+   
+   ### Start Backend Server
    npm start
    
 ## FrontEnd
