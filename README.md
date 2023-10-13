@@ -1,4 +1,4 @@
-# earning_staking
+# Earning_Staking
 
 # Tech Stacks
 1. Backend : Solidity,Hardhat,Ether.js,Express.js
