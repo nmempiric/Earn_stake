@@ -115,6 +115,8 @@ app.post("/unstake", async function (req, res) {
   try {
     const unstakeData = await signcontract.unstake();
     console.log("unstaking-------------", unstakeData);
+    // const statikgasLimit = 200000; 
+    // const gasPrice = ethers.utils.parseUnits('10', 'gwei');
     await unstakeData.wait();
     res.status(200).json({
       message: "UnStake Amount successfully",
